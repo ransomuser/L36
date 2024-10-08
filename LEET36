@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leet36</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        input, button { padding: 10px; margin-top: 10px; }
+        #output { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>L36</h1>
+    <input type="text" id="inputText" placeholder="Place text here" />
+    <button onclick="encryptText()">ENCRYPT</button>
+    <button onclick="decryptText()">DECRYPT</button>
+    <div id="output"></div>
+
+    <script>
+        function encryptText() {
+            const input = document.getElementById('inputText').value;
+            const mapping = {
+                'A': 'Δ', 'B': '3', 'C': '[', 'D': ']', 'E': '≡', 
+                'F': '₤', 'G': 'L¬', 'H': '‡', 'I': ':', 'J': '_/', 
+                'K': '{', 'L': '7', 'M': 'W', 'N': 'u', 'O': ';', 
+                'P': 'd', 'Q': 'p', 'R': '𐅜', 'S': '5', 'T': '┤', 
+                'U': 'n', 'V': '>', 'W': 'M', 'X': '][', 'Y': '✓', 
+                'Z': 'N', 'a': 'Δ', 'b': '3', 'c': '[', 'd': ']', 
+                'e': '≡', 'f': '₤', 'g': 'L¬', 'h': '‡', 'i': ':', 
+                'j': '_/', 'k': '{', 'l': '7', 'm': 'W', 'n': 'u', 
+                'o': ';', 'p': 'd', 'q': 'p', 'r': '𐅜', 's': '5', 
+                't': '┤', 'u': 'n', 'v': '>', 'w': 'M', 'x': '][', 
+                'y': '✓', 'z': 'N', '0': '.', '1': 'r', '2': '5', 
+                '3': 'E', '4': 'µ', '5': 'ẞ', '6': '9', '7': '¬', 
+                '8': '☒', '9': 'g',
+            };
+
+            let transformed = '';
+            for (const char of input) {
+                transformed += mapping[char] || char; // Use the mapping or keep the character as is  
+            }
+
+            document.getElementById('output').innerText = transformed;
+        }
+
+        function decryptText() {
+            const input = document.getElementById('inputText').value;
+            const mapping = {
+                'Δ': 'A', '3': 'B', '[': 'C', ']': 'D', '≡': 'E', 
+                '₤': 'F', 'L¬': 'G', '‡': 'H', ':': 'I', '_/': 'J', 
+                '{': 'K', '7': 'L', 'W': 'M', 'u': 'N', ';': 'O', 
+                'd': 'P', 'p': 'Q', '𐅜': 'R', '5': 'S', '┤': 'T', 
+                'n': 'U', '>': 'V', 'M': 'W', '][': 'X', '✓': 'Y', 
+                'N': 'Z', '.': '0', 'r': '1', '5': '2', 'E': '3', 
+                'µ': '4', 'ẞ': '5', '9': '6', '¬': '7', '☒': '8', 
+                'g': '9',
+            };
+
+            let transformed = '';
+            for (const char of input) {
+                transformed += mapping[char] || char; // Use the mapping or keep the character as is  
+            }
+
+            document.getElementById('output').innerText = transformed;
+        }
+    </script>
+
+    <p>
+        How does the encryption work...?
+        <br><br>
+        The letters A-Z, a-z, and 0-9 will be shifted into different characters and symbols to make a thing I call L36. It's basically 1337 but with some different characters shifted and number support.
+    </p>
+</body>
+</html>
